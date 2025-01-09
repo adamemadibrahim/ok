@@ -14,10 +14,10 @@ jobs:
     
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v3  # Checkout the repository code
+        uses: actions/checkout@v2  # Checkout the repository code
 
       - name: Set up Python
-        uses: actions/setup-python@v3  # Set up Python for the workflow
+        uses: actions/setup-python@v2  # Set up Python for the workflow
         with:
           python-version: '3.9'  # Specify the Python version, e.g., 3.x
 
