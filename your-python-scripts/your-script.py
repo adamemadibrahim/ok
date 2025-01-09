@@ -49,9 +49,6 @@ def process_file(file_name):
         print(f"Skipping {file_name}: Required columns 'Link' or 'Business Name' are missing.")
         return
 
-    # Limit the number of rows to reduce file size for testing
-    data = data.head(10)  # Take only the first 10 rows for testing purposes
-
     # Extract categories using ThreadPoolExecutor for parallelism
     with ThreadPoolExecutor(max_workers=10) as executor:
         data['Category'] = list(executor.map(get_category_from_link, data['Link']))
