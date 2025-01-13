@@ -63,7 +63,7 @@ def process_file(file_name):
     print(f"Finished processing {file_name}. Output saved to {output_file}\n")
 
 # Process all files in the folder (input_files)
-csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')][:1]
+csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')][:2]
 for file_name in csv_files:
     process_file(file_name)
 
