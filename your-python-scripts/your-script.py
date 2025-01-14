@@ -49,18 +49,16 @@ def process_file(file_name):
         print(f"Skipping {file_name}: Required columns 'Link' or 'Business Name' are missing.")
         return
 
-    # Extract categories using ThreadPoolExecutor for parallelism
+    # Extract categories using ThreadPoolExecutor for parallelism and create a new column
     with ThreadPoolExecutor(max_workers=10) as executor:
-        data['Category'] = list(executor.map(get_category_from_link, data['Link']))
-
-    # Append the category next to the business name
-    data['Business Name with Category'] = data['Business Name'] + ' - ' + data['Category'].fillna('No Category')
+        data['Business Category'] = list(executor.map(get_category_from_link, data['Link']))
 
     # Save the updated DataFrame to a new CSV file in the output folder
     output_file = os.path.join(output_folder, file_name)
     data.to_csv(output_file, index=False)
 
     print(f"Finished processing {file_name}. Output saved to {output_file}\n")
+
 
 # Process all files in the folder (input_files)
 csv_files = [f for f in os.listdir(folder_path) if f.endswith('.csv')][:2]
