@@ -5,7 +5,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 
 # Use relative paths for input and output folders in the GitHub Actions environment
-folder_path = './input_files'  # Assuming input files are in the input_files directory
+folder_path = './input_files'  # Assuming input files are in the input_files directory 
 output_folder = './output_files'  # The output files will be saved in the output_files directory
 
 # Ensure the output folder exists
